@@ -51,7 +51,7 @@ namespace PedeLogo.Catalogo.Api
                 {
                     Version = "v3",
                     Title = "API para cadastro de Pedidos V3",
-                    Description = "API para cadastro de Produtos V3"
+                    Description = "API para cadastro de Pedidos V3"
                 });
             });
         }
