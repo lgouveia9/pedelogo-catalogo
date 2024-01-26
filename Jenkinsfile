@@ -11,7 +11,7 @@ pipeline {
         stage('Build Image') {
            steps {
                script {
-                   dockerapp = docker.build("lgouveia9/pedelogocatalogo:${env.BUILD_ID}",
+                   dockerapp = docker.build("lgouveia/pedelogocatalogo:${env.BUILD_ID}",
                      '-f /home/jenkins/pedelogo-catalogo/src/PedeLogo.Catalogo.Api/Dockerfile .')
                }
            }
