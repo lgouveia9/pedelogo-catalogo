@@ -11,8 +11,8 @@ pipeline {
         stage('Build Image') {
            steps {
                script {
-                   dockerapp = docker.build("lgouveia9/pedelogocatalogo:${env.BUILD_ID}",
-                     '-f ./src/Pedelogo.Catalogo.Api/Dockerfile .')
+                   dockerapp = docker.build("lgouveia/pedelogocatalogo:${env.BUILD_ID}",
+                     '-f /home/jenkins/pedelogo-catalogo/src/PedeLogo.Catalogo.Api/Dockerfile .')
                }
            }
         }
@@ -21,12 +21,17 @@ pipeline {
             steps {
                script {
                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                    dockerapp.push('versao-teste')
+                    dockerapp.push('latest')
                     dockerapp.push("${env.BUILD_ID}")
                    }
                }
            }
         }
 
+        stage('RUN') {
+            steps {
+                sh 'docker run -d -p 8090:80 --name pedelogo lgouveia/pedelogocatalogo:latest'
+            }
+        }    
     }
 }
