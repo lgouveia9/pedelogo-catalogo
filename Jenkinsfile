@@ -28,5 +28,11 @@ pipeline {
            }
         }
 
+            stage('RUN') {
+            steps {
+                sh 'docker run -d -p 8090:80 --name pedelogo lgouveia/pedelogocatalogo:latest'
+            }
+        }
+        
     }
 }
