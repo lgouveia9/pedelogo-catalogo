@@ -28,10 +28,19 @@ pipeline {
            }
         }
 
+<<<<<<< HEAD
         stage('RUN') {
             steps {
                 sh 'docker run -d -p 8090:80 --name pedelogo lgouveia/pedelogocatalogo:latest'
             }
         }    
+=======
+            stage('RUN') {
+            steps {
+                sh 'docker run -d -p 8090:80 --name pedelogo lgouveia/pedelogocatalogo:latest'
+            }
+        }
+        
+>>>>>>> fac79d19234895de3d5736316cc9235517b2d91f
     }
 }
