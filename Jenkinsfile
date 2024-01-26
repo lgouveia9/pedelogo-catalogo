@@ -28,7 +28,7 @@ pipeline {
            }
         }
 
-        stage('RUN') {
+        stage('Docker Run') {
             steps {
                 sh 'docker container rm pedelogo -f'
                 sh 'docker run -d -p 8090:80 --name pedelogo lgouveia/pedelogocatalogo:latest'
