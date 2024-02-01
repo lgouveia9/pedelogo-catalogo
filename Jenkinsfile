@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout Sorce') {
+        stage('Checkout Source') {
            steps{
             git url:'https://github.com/lgouveia9/pedelogo-catalogo.git', branch:'main'
            }
