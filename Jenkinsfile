@@ -7,27 +7,7 @@ pipeline {
             git url:'https://github.com/lgouveia9/pedelogo-catalogo.git', branch:'main'
            }
         }
-
-        stage('Instalar Docker') {
-            steps {
-                script {
-                    // Atualiza os repositórios do pacote e instala os pré-requisitos
-                    sh 'apt-get update'
-                    sh 'apt-get install -y apt-transport-https ca-certificates curl software-properties-common'
-                    
-                    // Adiciona a chave GPG oficial do Docker
-                    sh 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -'
-                    
-                    // Configura o repositório estável do Docker
-                    sh 'add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"'
-                    
-                    // Atualiza os repositórios do pacote novamente e instala o Docker
-                    sh 'apt-get update'
-                    sh 'apt-get install -y docker-ce'
-                }
-            }
-        }
-
+                
         stage('Build Image') {
            steps {
                script {
