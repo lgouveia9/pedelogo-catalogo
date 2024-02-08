@@ -12,7 +12,7 @@ pipeline {
            steps {
                script {
                    dockerapp = docker.build("lgouveia/pedelogocatalogo:latest",
-                     '-f /opt/jenkins/pedelogo-catalogo/src/PedeLogo.Catalogo.Api/Dockerfile .')
+                     '-f /home/jenkins/pedelogo-catalogo/src/PedeLogo.Catalogo.Api/Dockerfile .')
                }
            }
         }
